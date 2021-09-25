@@ -1,6 +1,5 @@
 'use strict'
 const mongoose = require('mongoose')
-
 const shoppingCardList = new mongoose.Schema({
     userEmail: { type: String },
     imagePath: { type: String },
@@ -17,5 +16,4 @@ const shoppingCardList = new mongoose.Schema({
 }
 )
 const cardModel = mongoose.model('shoppingCard', shoppingCardList)
-
 module.exports = { shoppingCardList, cardModel }

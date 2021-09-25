@@ -1,7 +1,6 @@
 'use strict'
 const { shoppingCardList } = require('./card.schema')
 const { favoriteList } = require('./fav.schema')
-
 const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
     userEmail: { type: String, unique: true },
@@ -12,7 +11,6 @@ const userSchema = new mongoose.Schema({
     favoritList: [favoriteList]
 })
 const userModel = mongoose.model('users', userSchema)
-
 const seedFunction = async (data) => {
     const { email, name, picture, nickname } = data;
     userModel.find({ userEmail: email }, (err, userModel) => {
@@ -25,7 +23,6 @@ const seedFunction = async (data) => {
         }
     })
 }
-
 const addUser = async (email, name, picture, nickname) => {
     const new_user = new userModel({
         userEmail: email,
@@ -36,11 +33,9 @@ const addUser = async (email, name, picture, nickname) => {
         favoritList: []
     });
     try {
-
         await new_user.save();
     } catch (error) {
         console.log('some thing wrong', error)
     }
 }
-
 module.exports = { userModel, seedFunction }
