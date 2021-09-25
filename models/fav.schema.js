@@ -6,4 +6,4 @@ const favoriteList = new mongoose.Schema({
     favoriteItems: { type: Array },
 })
 
-module.export = { favoriteList }
+module.exports = { favoriteList }

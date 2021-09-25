@@ -8,7 +8,6 @@ const verifyToken = async (request, response) => {
             response.send('invalid token');
             console.log('error')
         }
-        console.log('going to seed')
         seedFunction(user);
     });
 };
