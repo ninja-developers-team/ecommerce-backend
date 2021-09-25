@@ -11,5 +11,4 @@ const verifyToken = async (request, response) => {
         seedFunction(user);
     });
 };
-
 module.exports = { verifyToken };
