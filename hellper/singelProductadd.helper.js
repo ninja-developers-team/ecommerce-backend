@@ -1,6 +1,5 @@
 'use strict'
 const { cardModel } = require('../models/card.schema')
-
 const creatCard = (productobj, quantity) => {
     const newQuy = quantity + productobj.quantity
     const newPrice = productobj.price * (quantity + productobj.quantity)
@@ -49,5 +48,4 @@ function populateProduct(productobj) {
         });
     return "msg"
 }
-
 module.exports = { populateProduct }

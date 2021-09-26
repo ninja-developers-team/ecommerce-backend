@@ -10,11 +10,9 @@ const addToCart = async (req, res) => {
     res.send(cart)
 }
 module.exports = { addToCart }
-
 const delFromCart = async (req, res) => {
     console.log('remov from cart1')
     const cartId = req.params.cartId;
-
     cardModel.deleteOne({ _id: cartId }, (error, deleted) => {
         if (error) {
             console.log(error)
@@ -22,7 +20,6 @@ const delFromCart = async (req, res) => {
         res.send(deleted);
     });
 }
-
 const getCartShoping = (req, res) => {
     const user = req.query.email;
     cardModel.find({ userEmail: user }, (err, userCard) => {
@@ -33,5 +30,4 @@ const getCartShoping = (req, res) => {
         }
     })
 }
-
 module.exports = { addToCart, delFromCart, getCartShoping }
