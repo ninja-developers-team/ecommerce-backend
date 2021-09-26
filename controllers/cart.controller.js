@@ -1,12 +1,13 @@
 'use strict'
 const { cardModel } = require('../models/card.schema')
-const { userModel } = require('./auth.controller')
+const { updateUserCart } = require('./user.controller')
 const { populateProduct } = require('../hellper/singelProductadd.helper')
 const addToCart = async (req, res) => {
     console.log('add to cart1')
     const newObj = req.body
     const data = populateProduct(newObj)
-    res.send(data)
+    const cart = updateUserCart(newObj.userEmail)
+    res.send(cart)
 }
 module.exports = { addToCart }
 
@@ -22,7 +23,7 @@ const delFromCart = async (req, res) => {
     });
 }
 
-const getCartShopin = (req, res) => {
+const getCartShoping = (req, res) => {
     const user = req.query.email;
     cardModel.find({ userEmail: user }, (err, userCard) => {
         if (userCard === null) {
@@ -33,4 +34,4 @@ const getCartShopin = (req, res) => {
     })
 }
 
-module.exports = { addToCart, delFromCart, getCartShopin }
+module.exports = { addToCart, delFromCart, getCartShoping }

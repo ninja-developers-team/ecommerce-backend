@@ -8,7 +8,7 @@ app.use(express.json());
 const PORT = process.env.PORT;
 const MONGO_DB_URL = process.env.MONGO_DB_URL;
 const { verifyToken } = require('./controllers/auth.controller')
-const { addToCart, delFromCart, getCartShopin } = require('./controllers/cart.controller')
+const { addToCart, delFromCart, getCartShoping } = require('./controllers/cart.controller')
 mongoose.connect(`${MONGO_DB_URL}/Stop-And-Shop`, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to database ')
@@ -21,7 +21,7 @@ app.get('/', (req, res) => res.send("<h1> Welcome to our server 😊<h1>"))
 app.get('/verify-token', verifyToken)
 app.post('/addtocard', addToCart)
 app.delete('/delfromcard/:cartId', delFromCart)
-app.get('/getCart', getCartShopin)
+app.get('/getCart', getCartShoping)
 app.listen(PORT, () => {
     console.log(`Server started on ${PORT}`)
 })
