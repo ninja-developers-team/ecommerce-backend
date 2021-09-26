@@ -1,10 +1,7 @@
 'use strict'
 const mongoose = require('mongoose')
-
-
 const favoriteList = new mongoose.Schema({
     userEmail: { type: 'string', unique: true },
-    favoriteItems: { type: 'string' },
+    favoriteItems: { type: Array },
 })
-
-module.export = { favoriteList }
+module.exports = { favoriteList }
