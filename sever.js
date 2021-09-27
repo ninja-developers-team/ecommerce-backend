@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 app.use(express.json());
 const PORT = process.env.PORT;
 const MONGO_DB_URL = process.env.MONGO_DB_URL;
+const { addToFav, getCartFav } = require('./controllers/fav.controller')
 
 const { verifyToken } = require("./controllers/auth.controller");
 const { getGameData } = require("./controllers/game.controller");
@@ -38,8 +39,8 @@ app.get("/verify-token", verifyToken);
 app.post("/addtocard", addToCart);
 app.delete("/delfromcard/:cartId", delFromCart);
 app.get("/getCart", getCartShoping);
-
-
+app.post('/addtofav', addToFav)
+app.get('/getCartFav', getCartFav)
 /*part game*/
 app.get("/game", getGameData);
 // crud endpoints
