@@ -9,7 +9,6 @@ const addToCart = async (req, res) => {
     const cart = updateUserCart(newObj.userEmail)
     res.send(cart)
 }
-module.exports = { addToCart }
 const delFromCart = async (req, res) => {
     console.log('remov from cart1')
     const cartId = req.params.cartId;
@@ -17,7 +16,8 @@ const delFromCart = async (req, res) => {
         if (error) {
             console.log(error)
         }
-        res.send(deleted);
+        // const newList = getCartShoping(req , res)
+        res.send("newList");
     });
 }
 const getCartShoping = (req, res) => {
